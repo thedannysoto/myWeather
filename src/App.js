@@ -6,9 +6,6 @@ import { fetchCurrentWeather } from './actions/weatherActions'
 
 class App extends Component {
 
-  componentDidMount() {
-    this.props.fetchCurrentWeather()
-  }
   render() {
 
     
