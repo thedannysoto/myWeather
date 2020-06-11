@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
+import ZipInput from './components/ZipInput'
 import { connect } from 'react-redux';
 import { fetchCurrentWeather } from './actions/weatherActions'
 
@@ -13,7 +14,9 @@ class App extends Component {
     
   return (
     <div className="App">
-      <h1>Weather</h1>
+      <h1>My Weather</h1>
+      <h3>Look up weather conditions in the U.S.</h3>
+      <ZipInput fetchCurrentWeather={ this.props.fetchCurrentWeather }/>
     </div>
   );
   }
