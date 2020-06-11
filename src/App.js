@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import ZipInput from './components/ZipInput'
-import { connect } from 'react-redux';
-import { fetchCurrentWeather } from './actions/weatherActions'
+import ZipContainer from './containers/ZipContainer';
+
 
 class App extends Component {
 
@@ -11,27 +10,11 @@ class App extends Component {
     
   return (
     <div className="App">
-      <h1>My Weather</h1>
-      <h3>Look up weather conditions in the U.S.</h3>
-      <ZipInput fetchCurrentWeather={ this.props.fetchCurrentWeather }/>
+      <ZipContainer />
     </div>
   );
-  }
-  
-}
-
-const mapStateToProps = state => {
-  return {
-    weather: state.weather,
-    loading: state.loading
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchCurrentWeather: () => dispatch(fetchCurrentWeather())
-  }
+  } 
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App;
