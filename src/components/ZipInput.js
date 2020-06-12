@@ -17,7 +17,8 @@ class ZipInput extends Component {
 
     handleOnSubmit(event) {
         event.preventDefault();
-        this.props.fetchCurrentWeather(this.state.zip);
+        this.props.addUrl(this.state.zip);
+        this.props.fetchCurrentWeather();
         this.setState({
             zip: ''
         })
@@ -28,6 +29,7 @@ class ZipInput extends Component {
         return(
             <div id="zip-input-container">
                 <form onSubmit={ (event) => this.handleOnSubmit(event) }>
+                    <label id="zip-label">Enter Zip Code: </label>
                     <input 
                         type="text"
                         value={this.state.zip}

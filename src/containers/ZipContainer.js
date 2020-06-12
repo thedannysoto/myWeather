@@ -12,22 +12,22 @@ class ZipContainer extends Component {
             <div>
                 <h1>My Weather</h1>
                 <h3>Look up weather conditions in the U.S.</h3>
-                <ZipInput fetchCurrentWeather={ this.props.fetchCurrentWeather }/>
+                <ZipInput fetchCurrentWeather={ this.props.fetchCurrentWeather } addUrl={this.props.addUrl} zip={this.props.zip}/>
             </div>
         )
-    }
-}
-
-const mapStateToProps = state => {
-    return {
-      weather: state.weather,
-      loading: state.loading
     }
 }
   
 const mapDispatchToProps = dispatch => {
     return {
-      fetchCurrentWeather: () => dispatch(fetchCurrentWeather())
+        addUrl: url => dispatch({ type: "ADD_URL", url }),
+        fetchCurrentWeather: () => dispatch(fetchCurrentWeather())
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        zip: state.zip
     }
 }
   
