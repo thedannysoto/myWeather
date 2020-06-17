@@ -15,7 +15,7 @@ class WeatherContainer extends Component {
     render() {
 
         return(
-            <div id="main-container">
+            <div id="main-container" style={{display: "none"}}>
                 <CurrentWeather dailyWeather={this.props.dailyWeather} weather={this.props.weather} fetchDailyWeather={this.props.fetchDailyWeather} addUrlTwo={this.props.addUrlTwo} handleOnClick={this.handleOnClick}/>
             </div>
         )
