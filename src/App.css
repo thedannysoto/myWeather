@@ -2,16 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -28,11 +18,60 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#top-container {
+  margin-top: 100px;
 }
+
+#my-weather {
+  color: white;
+  font-weight: bold;
+  font-size: 45px;
+  font-style: italic;
+  margin-bottom: -10px;
+}
+
+#tag-line {
+  color: rgb(64, 199, 252);
+  font-size: 22px;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+#zip-label {
+  color: white;
+  font-weight: bold;
+}
+
+#main-container {
+  background-color: rgba(38, 38, 38, 0.516);
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  border-radius: 50px;
+}
+
+#city-name {
+  color: rgb(64, 199, 252);
+  font-size: 34px;
+  margin-bottom: -10px;
+}
+
+#today-forecast {
+  color: white;
+  font-style: italic;
+  font-size: 20px;
+}
+
+#current-temps {
+  color: rgb(123, 188, 242);
+  font-weight: bold;
+}
+
+#daily-weather {
+  color: rgb(123, 188, 242);
+  font-weight: bold;
+}
+

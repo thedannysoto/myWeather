@@ -8,3 +8,14 @@ export const fetchCurrentWeather = () => {
       })
     }
   }
+
+export const fetchDailyWeather = () => {
+  return (dispatch, getState) => {
+    fetch(getState().urlTwo)
+    .then(response => response.json())
+    .then(responseJSON => {
+      console.log(getState().urlTwo)
+      dispatch({ type: 'ADD_DAILY_WEATHER', dailyWeather: responseJSON })
+    })
+  }
+}
