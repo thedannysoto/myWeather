@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import './App.css';
 import ZipContainer from './containers/ZipContainer';
-import WeatherContainer from './containers/WeatherContainer';
 import Home from './containers/Home';
 import About from './components/About';
 // import { Router } from 'react-router-dom';

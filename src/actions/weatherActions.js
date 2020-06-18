@@ -4,6 +4,8 @@ export const fetchCurrentWeather = () => {
       .then(response => response.json())
       .then(responseJSON => {
         dispatch({ type: 'ADD_CURRENT_WEATHER', weather: responseJSON })
+      }).catch(function() {
+        
       })
     }
   }
