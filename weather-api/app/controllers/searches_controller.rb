@@ -9,12 +9,6 @@ class SearchesController < ApplicationController
         render json: @searches, status: 200
     end
 
-    def show 
-        @search = Search.find(params[:id])
-
-        render json: @search, status: 200
-    end
-
     def create 
         search = Search.new 
         search.city = params[:city]
@@ -28,14 +22,6 @@ class SearchesController < ApplicationController
             @searches = @searches.slice(-5, 5).reverse
         end
         render json: @searches, status: 200
-    end
-
-    def update 
-        @search = Search.find(params[:id])
-        @search.update(search_params)
-
-        render json: @search, status: 200
-
     end
 
 
