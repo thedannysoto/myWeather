@@ -98,3 +98,18 @@
   font-weight: bolder;
 }
 
+#recent-searches {
+  position: fixed;
+  padding: 2em;
+  left: 75%;
+  top: 18%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: white;
+}
+
+.list-items {
+  margin-bottom: 10px;
+  color: rgb(98, 194, 247);
+}
+

@@ -5,7 +5,7 @@ class ZipInput extends Component {
     constructor() {
         super();
         this.state = {
-            zip: null,
+            zip: '',
             errors: {
                 zip: ''
             }
@@ -35,9 +35,13 @@ class ZipInput extends Component {
             })
             const mainDiv = document.getElementById("main-container");
             mainDiv.style.display = "block";
+            const searches = document.getElementById("recent-searches");
+            searches.style.display = "block";
         }
 
+
     }
+
 
     render() {
         const {errors} = this.state;

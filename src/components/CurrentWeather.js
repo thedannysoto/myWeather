@@ -12,12 +12,14 @@ class CurrentWeather extends Component {
         }).join(" ")
     }
 
+
     render () {
 
         return(
             <>
                 {this.props.weather.map((weather, idx) => {
                     return (
+                    
                     <div id="current-weather" key={idx}>
                     <h1 id="city-name">{weather.name}</h1>
                     <h3 id="today-forecast">Today's Forecast: {this.capitalizeString(weather.weather[0].description)}</h3>
@@ -31,7 +33,7 @@ class CurrentWeather extends Component {
                             <button id="forecast-button" onClick={this.props.handleOnClick}>See 7 Day Forecast</button>
                         </div>
                         <div id="forecast-container">
-                            <DailyWeather dailyWeather={this.props.dailyWeather} addUrlTwo={this.props.addUrlTwo} fetchDailyWeather={this.props.fetchDailyWeather} coord={this.props.weather[0].coord}/>
+                            <DailyWeather key={weather.name} sendSearch={this.props.sendSearch} dailyWeather={this.props.dailyWeather} addUrlTwo={this.props.addUrlTwo} fetchDailyWeather={this.props.fetchDailyWeather} coord={this.props.weather[0].coord}/>
                         </div>
                     </div>
                     )

@@ -1,7 +1,11 @@
 class SearchesController < ApplicationController
     def index
-        @searches = Search.all
-
+        searches = Search.all
+        if searches.length < 5
+            @searches = searches.slice(0, searches.length)
+        else  
+            @searches = searches.slice(-5, 5)
+        end
         render json: @searches, status: 200
     end
 
@@ -12,9 +16,18 @@ class SearchesController < ApplicationController
     end
 
     def create 
-        @search = Search.create(search_params)
-        
-        render json: @search, status: 200
+        search = Search.new 
+        search.city = params[:city]
+        search.zip = params[:zip]
+        search.save
+
+        @searches = Search.all
+        if @searches.length < 5
+            @searches = @searches.slice(0, @searches.length)
+        else  
+            @searches = @searches.slice(-5, 5).reverse
+        end
+        render json: @searches, status: 200
     end
 
     def update 

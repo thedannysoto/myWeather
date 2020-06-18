@@ -1,6 +1,5 @@
 export const fetchCurrentWeather = () => {
   return (dispatch, getState) => {
-      // dispatch({ type: 'LOADING_CURRENT_WEATHER'})
       fetch(getState().url)
       .then(response => response.json())
       .then(responseJSON => {
@@ -14,8 +13,25 @@ export const fetchDailyWeather = () => {
     fetch(getState().urlTwo)
     .then(response => response.json())
     .then(responseJSON => {
-      console.log(getState().urlTwo)
       dispatch({ type: 'ADD_DAILY_WEATHER', dailyWeather: responseJSON })
+    })
+  }
+}
+
+export const sendSearch = () => {
+  return (dispatch, getState) => {
+    const data = {zip: getState().recent, city: getState().city}
+    fetch("http://127.0.0.1:3000/searches", {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(responseJSON => {
+      dispatch({ type: 'ADD_RECENT_SEARCHES', recent: responseJSON })
     })
   }
 }

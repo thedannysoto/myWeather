@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CurrentWeather from '../components/CurrentWeather';
 import { fetchDailyWeather } from '../actions/weatherActions';
+import { sendSearch } from '../actions/weatherActions';
 
 import { connect } from 'react-redux'
 
@@ -16,7 +17,7 @@ class WeatherContainer extends Component {
 
         return(
             <div id="main-container" style={{display: "none"}}>
-                <CurrentWeather dailyWeather={this.props.dailyWeather} weather={this.props.weather} fetchDailyWeather={this.props.fetchDailyWeather} addUrlTwo={this.props.addUrlTwo} handleOnClick={this.handleOnClick}/>
+                <CurrentWeather sendSearch={this.props.sendSearch} dailyWeather={this.props.dailyWeather} weather={this.props.weather} fetchDailyWeather={this.props.fetchDailyWeather} addUrlTwo={this.props.addUrlTwo} handleOnClick={this.handleOnClick}/>
             </div>
         )
     }
@@ -25,14 +26,15 @@ class WeatherContainer extends Component {
 const mapStateToProps = state => {
     return {
         weather: state.weather,
-        dailyWeather: state.dailyWeather
+        dailyWeather: state.dailyWeather,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
+        sendSearch: () => dispatch(sendSearch()),
         addUrlTwo: coordinates => dispatch({ type: 'ADD_URL_TWO', coordinates }),
-        fetchDailyWeather: () => dispatch(fetchDailyWeather())
+        fetchDailyWeather: () => dispatch(fetchDailyWeather()),
     }
 }
 

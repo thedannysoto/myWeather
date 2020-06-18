@@ -11,7 +11,8 @@ class DailyWeather extends Component {
 
     componentDidMount(){
         this.props.addUrlTwo(this.props.coord);
-        this.props.fetchDailyWeather()
+        this.props.fetchDailyWeather();
+        this.props.sendSearch();
     }
 
 
@@ -19,8 +20,6 @@ class DailyWeather extends Component {
 
         return(
             <div id="daily-weather" style={{display: "none"}}>
-                {/* {display: this.props.dailyWeather ? "block": "none"} */}
-                {console.log(this.props.dailyWeather)}
                 
                 {this.props.dailyWeather.map((weather, idx) => {
                     const day = new Date();
