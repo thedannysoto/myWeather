@@ -38,6 +38,7 @@ class CurrentWeather extends Component {
                     </div>
                     )
                 })}
+                
             </>
         )
     }

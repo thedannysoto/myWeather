@@ -6,12 +6,6 @@ const weatherReducer = (state = { searches: [], url: '', urlTwo: '', city: '', r
       case 'ADD_URL_TWO':
         const urlTwo = `http://api.openweathermap.org/data/2.5/onecall?lat=${action.coordinates.lat}&lon=${action.coordinates.lon}&units=imperial&exclude=current,minutely,hourly&APPID=8cabadff1f39fef97e9c9ce17cf34e31`;
         return { ...state, urlTwo: urlTwo }
-      case 'LOADING_CURRENT_WEATHER':
-        return {
-            ...state,
-            weather: [...state.weather],
-            loading: true
-        }
       case 'ADD_CURRENT_WEATHER':
         return {
           ...state,
