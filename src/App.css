@@ -102,6 +102,27 @@
   padding-bottom: 3px;
 }
 
+#loading {
+  color:white;
+  font-weight: bold;
+}
+
+#dropdown {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.search-option.div {
+  margin-top: 5px;
+}
+.search-option {
+  width: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 #main-container {
   background-color: rgba(38, 38, 38, 0.516);
   width: 500px;

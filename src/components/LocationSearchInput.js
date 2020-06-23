@@ -22,22 +22,26 @@ class LocationSearchInput extends Component {
   };
 
   render() {
+      const searchOptions = {
+          types: ['geocode']
+      }
     return (
       <PlacesAutocomplete
         value={this.state.address}
         onChange={this.handleChange}
         onSelect={this.handleSelect}
+        searchOptions={searchOptions}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
             <input
               {...getInputProps({
-                placeholder: 'Search Places ...',
+                placeholder: 'Search...',
                 className: 'location-search-input',
               })}
             />
-            <div className="autocomplete-dropdown-container">
-              {loading && <div>Loading...</div>}
+            <div id="dropdown" className="autocomplete-dropdown-container">
+              {loading && <div id="loading" style={{display: "none"}}>Loading...</div>}
               {suggestions.map(suggestion => {
                 const className = suggestion.active
                   ? 'suggestion-item--active'
@@ -47,13 +51,13 @@ class LocationSearchInput extends Component {
                   ? { backgroundColor: '#fafafa', cursor: 'pointer' }
                   : { backgroundColor: '#ffffff', cursor: 'pointer' };
                 return (
-                  <div
+                  <div className="search-option-div"
                     {...getSuggestionItemProps(suggestion, {
                       className,
                       style,
                     })}
                   >
-                    <span>{suggestion.description}</span>
+                    <span className="search-option">{suggestion.description}</span>
                   </div>
                 );
               })}
