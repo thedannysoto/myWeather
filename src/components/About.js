@@ -7,7 +7,7 @@ class About extends Component {
 
         return(
             <div id="about">
-                <p>My Weather uses the OpenWeather API to return the current weather and 7 day forecast for a Zip Code in the United States.</p>
+                <p>My Weather uses the Google Places API and the OpenWeather API to return the current weather and 7 day forecast for a user-selected location.</p>
             </div>
         )
     }

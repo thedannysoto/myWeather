@@ -15,18 +15,21 @@ class LocationSearchInput extends Component {
   };
 
   handleSelect = address => {
-    geocodeByAddress(address)
-      .then(results => {
-          console.log(results[0].formatted_address);
-          return getLatLng(results[0])
-      })
-      .then(latLng => {
-          this.props.addUrl(latLng);
-          return this.props.addLocation(address);
-      })
-              //   .catch(error => console.error('Error', error));
-      setTimeout(function() { this.props.fetchCurrentWeather(); }, 3000);
+    this.sendLocationData(address, this.props.fetchCurrentWeather);
+    this.setState({ address: '' })
   };
+
+  sendLocationData(address, fetchWeather) {
+    geocodeByAddress(address)
+    .then(results => {
+        console.log(results[0].formatted_address);
+        return getLatLng(results[0])
+    })
+    .then(latLng => {
+        this.props.addLocation(address);
+        this.props.addUrl(latLng)})
+    .then(results => fetchWeather());
+  }
 
   render() {
       const searchOptions = {

@@ -6,11 +6,12 @@ const weatherReducer = (state = { searches: [], url: '', urlTwo: '', location: '
       case 'ADD_LOCATION':
         return { ...state, location: action.location }
       case 'ADD_CURRENT_WEATHER':
-        return {
-          ...state,
-          city: action.weather.name,
-          weather: [action.weather],
-        }
+        const mainDiv = document.getElementById("main-container");
+        mainDiv.style.display = "block";
+      return {
+        ...state,
+        weather: [action]
+      }  
       case 'ADD_DAILY_WEATHER':
           return {
               ...state,

@@ -21,19 +21,19 @@ class CurrentWeather extends Component {
                     return (
                     
                     <div id="current-weather" key={idx}>
-                    <h1 id="city-name">{weather.name}</h1>
-                    <h3 id="today-forecast">Today's Forecast: {this.capitalizeString(weather.weather[0].description)}</h3>
+                    <h1 id="city-name">{this.props.location}</h1>
+                    <h3 id="today-forecast">Today's Forecast: {this.capitalizeString(weather.weather.current.weather[0].description)}</h3>
                         <div id="current-temps">
-                            <p>Current Temperature: {Math.round(weather.main.temp)}°</p>
-                            <p>Feels like: {Math.round(weather.main.feels_like)}°</p>
-                            <p>Today's High: {Math.round(weather.main.temp_max)}°</p>
-                            <p>Today's Low: {Math.round(weather.main.temp_min)}°</p>
+                            <p>Current Temperature: {Math.round(weather.weather.current.temp)}°</p>
+                            <p>Feels like: {Math.round(weather.weather.current.feels_like)}°</p>
+                            <p>Today's High: {Math.round(weather.weather.daily[0].temp.max)}°</p>
+                            <p>Today's Low: {Math.round(weather.weather.daily[0].temp.min)}°</p>
                         </div>
                         <div id="forecast-button-container">
                             <button id="forecast-button" onClick={this.props.handleOnClick}>See 7 Day Forecast</button>
                         </div>
                         <div id="forecast-container">
-                            <DailyWeather key={weather.name} sendSearch={this.props.sendSearch} dailyWeather={this.props.dailyWeather} addUrlTwo={this.props.addUrlTwo} fetchDailyWeather={this.props.fetchDailyWeather} coord={this.props.weather[0].coord}/>
+                            <DailyWeather key={weather.weather.current.dt} sendSearch={this.props.sendSearch} weather={this.props.weather} addUrlTwo={this.props.addUrlTwo} fetchDailyWeather={this.props.fetchDailyWeather} coord={this.props.weather[0].coord}/>
                         </div>
                     </div>
                     )
