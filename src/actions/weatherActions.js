@@ -10,19 +10,9 @@ export const fetchCurrentWeather = () => {
     }
   }
 
-export const fetchDailyWeather = () => {
-  return (dispatch, getState) => {
-    fetch(getState().urlTwo)
-    .then(response => response.json())
-    .then(responseJSON => {
-      dispatch({ type: 'ADD_DAILY_WEATHER', dailyWeather: responseJSON })
-    })
-  }
-}
-
 export const sendSearch = () => {
   return (dispatch, getState) => {
-    const data = {zip: getState().recent, city: getState().city}
+    const data = {url: getState().recent, location: getState().location}
     fetch("http://127.0.0.1:3000/searches", {
       method: 'POST',
       headers: {

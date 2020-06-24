@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import CurrentWeather from '../components/CurrentWeather';
-import { fetchDailyWeather } from '../actions/weatherActions';
 import { sendSearch } from '../actions/weatherActions';
 
 import { connect } from 'react-redux'
@@ -36,7 +35,6 @@ const mapDispatchToProps = dispatch => {
     return {
         sendSearch: () => dispatch(sendSearch()),
         addUrlTwo: coordinates => dispatch({ type: 'ADD_URL_TWO', coordinates }),
-        fetchDailyWeather: () => dispatch(fetchDailyWeather()),
     }
 }
 

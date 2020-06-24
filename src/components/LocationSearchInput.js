@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from 'react-places-autocomplete';
+import PlacesAutocomplete from 'react-places-autocomplete';
 
 class LocationSearchInput extends Component {
   constructor(props) {
@@ -13,23 +10,23 @@ class LocationSearchInput extends Component {
   handleChange = address => {
     this.setState({ address });
   };
+ 
+  // handleSelect = address => {
+  //   this.sendLocationData(address, this.props.fetchCurrentWeather);
+  //   this.setState({ address: '' })
+  // };
 
-  handleSelect = address => {
-    this.sendLocationData(address, this.props.fetchCurrentWeather);
-    this.setState({ address: '' })
-  };
-
-  sendLocationData(address, fetchWeather) {
-    geocodeByAddress(address)
-    .then(results => {
-        console.log(results[0].formatted_address);
-        return getLatLng(results[0])
-    })
-    .then(latLng => {
-        this.props.addLocation(address);
-        this.props.addUrl(latLng)})
-    .then(results => fetchWeather());
-  }
+  // sendLocationData(address, fetchWeather) {
+  //   geocodeByAddress(address)
+  //   .then(results => {
+  //       console.log(results[0].formatted_address);
+  //       return getLatLng(results[0])
+  //   })
+  //   .then(latLng => {
+  //       this.props.addLocation(address);
+  //       this.props.addUrl(latLng)})
+  //   .then(results => fetchWeather());
+  // }
 
   render() {
       const searchOptions = {
@@ -39,7 +36,7 @@ class LocationSearchInput extends Component {
       <PlacesAutocomplete
         value={this.state.address}
         onChange={this.handleChange}
-        onSelect={this.handleSelect}
+        onSelect={this.props.handleSelect}
         searchOptions={searchOptions}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (

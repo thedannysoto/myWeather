@@ -1,0 +1,430 @@
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 14:40:14 -0500
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>39.0997265, "lng"=>-94.5785667}, "location"=>"Kansas City, MO, USA", "search"=>{}}
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5394505234747889295)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeColumnName (20200624194209)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (34.0ms)[0m  [1m[35mALTER TABLE "searches" RENAME COLUMN "zip" TO "url"[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "searches" RENAME COLUMN "city" TO "location"[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200624194209"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5394505234747889295)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 14:45:11 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>39.0997265, "lng"=>-94.5785667}, "location"=>"Kansas City, MO, USA", "search"=>{"url"=>{"lat"=>39.0997265, "lng"=>-94.5785667}, "location"=>"Kansas City, MO, USA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (8.0ms)[0m  [1m[32mINSERT INTO "searches" ("url", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "{\"lat\"=>39.0997265, \"lng\"=>-94.5785667}"], ["location", "Kansas City, MO, USA"], ["created_at", "2020-06-24 19:45:17.488837"], ["updated_at", "2020-06-24 19:45:17.488837"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 6143ms (Views: 0.9ms | ActiveRecord: 12.9ms | Allocations: 19853)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 14:45:42 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>29.9940924, "lng"=>-90.2417434}, "location"=>"Kenner, LA, USA", "search"=>{"url"=>{"lat"=>29.9940924, "lng"=>-90.2417434}, "location"=>"Kenner, LA, USA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:16:in `create'
+  [1m[36mSearch Create (0.6ms)[0m  [1m[32mINSERT INTO "searches" ("url", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "{\"lat\"=>29.9940924, \"lng\"=>-90.2417434}"], ["location", "Kenner, LA, USA"], ["created_at", "2020-06-24 19:45:42.709236"], ["updated_at", "2020-06-24 19:45:42.709236"]]
+  ↳ app/controllers/searches_controller.rb:16:in `create'
+  [1m[35m (39.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:16:in `create'
+  [1m[36mSearch Load (0.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:19:in `create'
+Completed 200 OK in 55ms (Views: 0.8ms | ActiveRecord: 44.5ms | Allocations: 7432)
+
+
+  [1m[36mSearch Load (0.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mSearch Load (0.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  [1m[36mSearch Load (0.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.6ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 43]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 42]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 41]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 40]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 39]]
+  [1m[36mSearch Load (0.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 38]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 37]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 36]]
+  [1m[36mSearch Load (0.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 35]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 34]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 33]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 32]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 31]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 30]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 29]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 28]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 27]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 26]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 25]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 24]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 23]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 22]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 21]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 20]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 19]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.2ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 18]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 17]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 16]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 15]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 14]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 13]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 12]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 11]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 10]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 9]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 8]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.2ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 7]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (39.5ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 6]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 5]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 4]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 3]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.0ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 2]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 1]]
+  [1m[36mSearch Load (0.5ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 14:47:37 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>61.2180556, "lng"=>-149.9002778}, "location"=>"Anchorage, AK, USA", "search"=>{"url"=>{"lat"=>61.2180556, "lng"=>-149.9002778}, "location"=>"Anchorage, AK, USA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:16:in `create'
+  [1m[36mSearch Create (0.6ms)[0m  [1m[32mINSERT INTO "searches" ("url", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "{\"lat\"=>61.2180556, \"lng\"=>-149.9002778}"], ["location", "Anchorage, AK, USA"], ["created_at", "2020-06-24 19:47:37.393449"], ["updated_at", "2020-06-24 19:47:37.393449"]]
+  ↳ app/controllers/searches_controller.rb:16:in `create'
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:16:in `create'
+  [1m[36mSearch Load (0.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:19:in `create'
+Completed 200 OK in 23ms (Views: 0.5ms | ActiveRecord: 12.6ms | Allocations: 6532)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:04:39 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>44.977753, "lng"=>-93.2650108}, "location"=>"Minneapolis, MN, USA", "search"=>{"url"=>{"lat"=>44.977753, "lng"=>-93.2650108}, "location"=>"Minneapolis, MN, USA"}}
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:06:11 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>42.6525793, "lng"=>-73.7562317}, "location"=>"Albany, NY, USA", "search"=>{"url"=>{"lat"=>42.6525793, "lng"=>-73.7562317}, "location"=>"Albany, NY, USA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:16:in `create'
+  [1m[36mSearch Create (0.6ms)[0m  [1m[32mINSERT INTO "searches" ("url", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "{\"lat\"=>42.6525793, \"lng\"=>-73.7562317}"], ["location", "Albany, NY, USA"], ["created_at", "2020-06-24 20:06:11.713213"], ["updated_at", "2020-06-24 20:06:11.713213"]]
+  ↳ app/controllers/searches_controller.rb:16:in `create'
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:16:in `create'
+  [1m[36mSearch Load (0.5ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:19:in `create'
+Completed 200 OK in 57ms (Views: 0.6ms | ActiveRecord: 46.3ms | Allocations: 6658)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5394505234747889295)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeUrlColumnName (20200624200744)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "searches" RENAME COLUMN "url" TO "lat"[0m
+  [1m[35m (44.9ms)[0m  [1m[35mALTER TABLE "searches" ADD "lng" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200624200744"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5394505234747889295)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:10:07 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>43.0389025, "lng"=>-87.9064736}, "location"=>"Milwaukee, WI, USA", "search"=>{"location"=>"Milwaukee, WI, USA"}}
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:11:19 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>39.5296329, "lng"=>-119.8138027}, "location"=>"Reno, NV, USA", "search"=>{"location"=>"Reno, NV, USA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:19:in `create'
+  [1m[36mSearch Create (0.6ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "39.5296329"], ["location", "Reno, NV, USA"], ["created_at", "2020-06-24 20:11:24.441269"], ["updated_at", "2020-06-24 20:11:24.441269"], ["lng", "-119.8138027"]]
+  ↳ app/controllers/searches_controller.rb:19:in `create'
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:19:in `create'
+  [1m[36mSearch Load (0.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:22:in `create'
+Completed 200 OK in 5214ms (Views: 1.2ms | ActiveRecord: 11.7ms | Allocations: 20208)
+
+
+  [1m[36mSearch Load (0.5ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 46]]
+  [1m[36mSearch Load (0.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 45]]
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" ORDER BY "searches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSearch Destroy (6.1ms)[0m  [1m[31mDELETE FROM "searches" WHERE "searches"."id" = $1[0m  [["id", 44]]
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:13:40 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>38.5815719, "lng"=>-121.4943996}, "location"=>"Sacramento, CA, USA", "search"=>{"location"=>"Sacramento, CA, USA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:19:in `create'
+  [1m[36mSearch Create (0.8ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "38.5815719"], ["location", "Sacramento, CA, USA"], ["created_at", "2020-06-24 20:13:43.545500"], ["updated_at", "2020-06-24 20:13:43.545500"], ["lng", "-121.4943996"]]
+  ↳ app/controllers/searches_controller.rb:19:in `create'
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:19:in `create'
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:22:in `create'
+Completed 200 OK in 3224ms (Views: 0.6ms | ActiveRecord: 11.4ms | Allocations: 19911)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:17:15 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>43.5890452, "lng"=>-79.6441198}, "location"=>"Mississauga, ON, Canada", "search"=>{"location"=>"Mississauga, ON, Canada"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:19:in `create'
+  [1m[36mSearch Create (0.3ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "43.5890452"], ["location", "Mississauga, ON, Canada"], ["created_at", "2020-06-24 20:17:20.223473"], ["updated_at", "2020-06-24 20:17:20.223473"], ["lng", "-79.6441198"]]
+  ↳ app/controllers/searches_controller.rb:19:in `create'
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:19:in `create'
+  [1m[36mSearch Load (0.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:22:in `create'
+Completed 200 OK in 5201ms (Views: 0.4ms | ActiveRecord: 6.8ms | Allocations: 10319)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:19:40 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>43.3182479, "lng"=>-3.0211969}, "location"=>"Portugalete, Spain", "search"=>{"location"=>"Portugalete, Spain"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (0.3ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "43.3182479"], ["location", "Portugalete, Spain"], ["created_at", "2020-06-24 20:19:40.982875"], ["updated_at", "2020-06-24 20:19:40.982875"], ["lng", "-3.0211969"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (39.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 51ms (Views: 0.5ms | ActiveRecord: 42.8ms | Allocations: 6905)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:29:55 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>39.0277832, "lng"=>-94.6557914}, "location"=>"Mission, KS, USA", "search"=>{"location"=>"Mission, KS, USA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (0.9ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "39.0277832"], ["location", "Mission, KS, USA"], ["created_at", "2020-06-24 20:29:55.709551"], ["updated_at", "2020-06-24 20:29:55.709551"], ["lng", "-94.6557914"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 14ms (Views: 0.7ms | ActiveRecord: 7.7ms | Allocations: 3533)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:33:48 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>39.0350053, "lng"=>-94.6085677}, "location"=>"Mission Woods, KS, USA", "search"=>{"location"=>"Mission Woods, KS, USA"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (0.4ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "39.0350053"], ["location", "Mission Woods, KS, USA"], ["created_at", "2020-06-24 20:33:48.128237"], ["updated_at", "2020-06-24 20:33:48.128237"], ["lng", "-94.6085677"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 13ms (Views: 1.3ms | ActiveRecord: 6.6ms | Allocations: 3616)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:35:26 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>32.2987573, "lng"=>-90.1848103}, "location"=>"Jackson, MS, USA", "search"=>{"location"=>"Jackson, MS, USA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (0.3ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "32.2987573"], ["location", "Jackson, MS, USA"], ["created_at", "2020-06-24 20:35:26.965460"], ["updated_at", "2020-06-24 20:35:26.965460"], ["lng", "-90.1848103"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.2ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 3604)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:36:32 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>28.5383355, "lng"=>-81.3792365}, "location"=>"Orlando, FL, USA", "search"=>{"location"=>"Orlando, FL, USA"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (0.3ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "28.5383355"], ["location", "Orlando, FL, USA"], ["created_at", "2020-06-24 20:36:32.949233"], ["updated_at", "2020-06-24 20:36:32.949233"], ["lng", "-81.3792365"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 13ms (Views: 1.2ms | ActiveRecord: 7.0ms | Allocations: 3616)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:38:29 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>43.6150186, "lng"=>-116.2023137}, "location"=>"Boise, ID, USA", "search"=>{"location"=>"Boise, ID, USA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (0.3ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "43.6150186"], ["location", "Boise, ID, USA"], ["created_at", "2020-06-24 20:38:29.299785"], ["updated_at", "2020-06-24 20:38:29.299785"], ["lng", "-116.2023137"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 13ms (Views: 0.9ms | ActiveRecord: 7.1ms | Allocations: 3628)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:39:19 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>47.0378741, "lng"=>-122.9006951}, "location"=>"Olympia, WA, USA", "search"=>{"location"=>"Olympia, WA, USA"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (0.3ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "47.0378741"], ["location", "Olympia, WA, USA"], ["created_at", "2020-06-24 20:39:19.237004"], ["updated_at", "2020-06-24 20:39:19.237004"], ["lng", "-122.9006951"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 12ms (Views: 0.8ms | ActiveRecord: 6.7ms | Allocations: 3640)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:39:48 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>45.5051064, "lng"=>-122.6750261}, "location"=>"Portland, OR, USA", "search"=>{"location"=>"Portland, OR, USA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (0.5ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "45.5051064"], ["location", "Portland, OR, USA"], ["created_at", "2020-06-24 20:39:48.921077"], ["updated_at", "2020-06-24 20:39:48.921077"], ["lng", "-122.6750261"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.2ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 3.0ms | Allocations: 3652)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:40:10 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>25.7616798, "lng"=>-80.1917902}, "location"=>"Miami, FL, USA", "search"=>{"location"=>"Miami, FL, USA"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (0.3ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "25.7616798"], ["location", "Miami, FL, USA"], ["created_at", "2020-06-24 20:40:10.291822"], ["updated_at", "2020-06-24 20:40:10.291822"], ["lng", "-80.1917902"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 12ms (Views: 0.9ms | ActiveRecord: 6.8ms | Allocations: 3665)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:40:55 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>41.2033216, "lng"=>-77.1945247}, "location"=>"Pennsylvania, USA", "search"=>{"location"=>"Pennsylvania, USA"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (0.3ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "41.2033216"], ["location", "Pennsylvania, USA"], ["created_at", "2020-06-24 20:40:55.430606"], ["updated_at", "2020-06-24 20:40:55.430606"], ["lng", "-77.1945247"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 12ms (Views: 1.1ms | ActiveRecord: 6.9ms | Allocations: 3677)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:40:59 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>47.0378741, "lng"=>-122.9006951}, "location"=>"Olympia, WA, USA", "search"=>{"location"=>"Olympia, WA, USA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (0.5ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "47.0378741"], ["location", "Olympia, WA, USA"], ["created_at", "2020-06-24 20:40:59.160247"], ["updated_at", "2020-06-24 20:40:59.160247"], ["lng", "-122.9006951"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (40.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 47ms (Views: 0.8ms | ActiveRecord: 41.3ms | Allocations: 3689)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:41:03 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>25.7616798, "lng"=>-80.1917902}, "location"=>"Miami, FL, USA", "search"=>{"location"=>"Miami, FL, USA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (0.4ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "25.7616798"], ["location", "Miami, FL, USA"], ["created_at", "2020-06-24 20:41:03.426264"], ["updated_at", "2020-06-24 20:41:03.426264"], ["lng", "-80.1917902"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 49ms (Views: 0.9ms | ActiveRecord: 41.7ms | Allocations: 3701)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:41:07 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>45.5051064, "lng"=>-122.6750261}, "location"=>"Portland, OR, USA", "search"=>{"location"=>"Portland, OR, USA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (0.4ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "45.5051064"], ["location", "Portland, OR, USA"], ["created_at", "2020-06-24 20:41:07.860514"], ["updated_at", "2020-06-24 20:41:07.860514"], ["lng", "-122.6750261"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (40.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 47ms (Views: 0.6ms | ActiveRecord: 41.4ms | Allocations: 3713)
+
+
+Started POST "/searches" for 127.0.0.1 at 2020-06-24 15:41:16 -0500
+Processing by SearchesController#create as JSON
+  Parameters: {"url"=>{"lat"=>25.7616798, "lng"=>-80.1917902}, "location"=>"Miami, FL, USA", "search"=>{"location"=>"Miami, FL, USA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Create (0.3ms)[0m  [1m[32mINSERT INTO "searches" ("lat", "location", "created_at", "updated_at", "lng") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["lat", "25.7616798"], ["location", "Miami, FL, USA"], ["created_at", "2020-06-24 20:41:16.451627"], ["updated_at", "2020-06-24 20:41:16.451627"], ["lng", "-80.1917902"]]
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[35m (39.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/searches_controller.rb:17:in `create'
+  [1m[36mSearch Load (0.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches"[0m
+  ↳ app/controllers/searches_controller.rb:20:in `create'
+Completed 200 OK in 46ms (Views: 0.7ms | ActiveRecord: 40.6ms | Allocations: 3725)
+
+

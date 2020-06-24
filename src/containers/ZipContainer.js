@@ -3,33 +3,45 @@ import ZipInput from '../components/ZipInput';
 import { fetchCurrentWeather, sendSearch } from '../actions/weatherActions'
 import RecentSearches from '../components/RecentSearches';
 import WeatherContainer from './WeatherContainer';
+import {
+    geocodeByAddress,
+    getLatLng,
+  } from 'react-places-autocomplete';
 
 import { connect } from 'react-redux'
 
 class ZipContainer extends Component {
 
-    constructor() {
-        super();
-        this.state = ({
-            loading: false
-        })
-    }
+    handleSelect = address => {
+        this.sendLocationData(address, this.props.fetchCurrentWeather);
+      };
 
-    updateState = () => {
-        this.setState({
-            loading: true
-        })
+    handleOnClick = event => {
+        this.sendLocationData(event.target.innerText, this.props.fetchCurrentWeather)
     }
+    
+      sendLocationData(address, fetchWeather) {
+        geocodeByAddress(address)
+        .then(results => {
+            console.log(results[0].formatted_address);
+            return getLatLng(results[0])
+        })
+        .then(latLng => {
+            this.props.addLocation(address);
+            this.props.addUrl(latLng)})
+        .then(results => fetchWeather());
+      }
 
+    
     render() {
 
 
         return(
             <div id="top-container">
-                <ZipInput updateState={this.updateState} sendSearch={this.props.sendSearch} fetchCurrentWeather={ this.props.fetchCurrentWeather } addUrl={this.props.addUrl} zip={this.props.zip} addLocation={this.props.addLocation} />
+                <ZipInput handleSelect={this.handleSelect} sendSearch={this.props.sendSearch} fetchCurrentWeather={ this.props.fetchCurrentWeather } addUrl={this.props.addUrl} zip={this.props.zip} addLocation={this.props.addLocation} />
             <div id="recent-searches" style={{display: "none"}}>
                 <h3>Recent Searches</h3>
-                <RecentSearches zip={this.props.zip} addUrl={this.props.addUrl} fetchCurrentWeather={this.props.fetchCurrentWeather} handleOnClickList={this.handleOnClickList} searches={this.props.searches} />
+                <RecentSearches  handleOnClick={this.handleOnClick} searches={this.props.searches} />
             </div>
                 <WeatherContainer />
             </div>

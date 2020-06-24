@@ -11,8 +11,9 @@ class SearchesController < ApplicationController
 
     def create 
         search = Search.new 
-        search.city = params[:city]
-        search.zip = params[:zip]
+        search.location = params[:location]
+        search.lat = params[:url][:lat]
+        search.lng = params[:url][:lng]
         search.save
 
         @searches = Search.all
@@ -27,7 +28,7 @@ class SearchesController < ApplicationController
 
     private 
         def search_params 
-            params.require(:search).permit(:city, :zip)
+            params.require(:search).permit(:location, :url)
         end
 
     

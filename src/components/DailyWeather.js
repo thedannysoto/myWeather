@@ -10,8 +10,7 @@ class DailyWeather extends Component {
     }
 
     componentDidMount(){
-        // this.props.fetchDailyWeather();
-        // this.props.sendSearch();
+        this.props.sendSearch();
     }
 
 
