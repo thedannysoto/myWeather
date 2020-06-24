@@ -16,9 +16,16 @@ class LocationSearchInput extends Component {
 
   handleSelect = address => {
     geocodeByAddress(address)
-      .then(results => getLatLng(results[0]))
-      .then(latLng => console.log('Success', latLng))
-      .catch(error => console.error('Error', error));
+      .then(results => {
+          console.log(results[0].formatted_address);
+          return getLatLng(results[0])
+      })
+      .then(latLng => {
+          this.props.addUrl(latLng);
+          return this.props.addLocation(address);
+      })
+              //   .catch(error => console.error('Error', error));
+      setTimeout(function() { this.props.fetchCurrentWeather(); }, 3000);
   };
 
   render() {
@@ -48,7 +55,7 @@ class LocationSearchInput extends Component {
                   : 'suggestion-item';
                 // inline style for demonstration purpose
                 const style = suggestion.active
-                  ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                  ? { backgroundColor: '#c8c8c8', cursor: 'pointer' }
                   : { backgroundColor: '#ffffff', cursor: 'pointer' };
                 return (
                   <div className="search-option-div"

@@ -3,6 +3,7 @@ export const fetchCurrentWeather = () => {
       fetch(getState().url)
       .then(response => response.json())
       .then(responseJSON => {
+        console.log(responseJSON);
         dispatch({ type: 'ADD_CURRENT_WEATHER', weather: responseJSON })
       }).catch(function() {
       })

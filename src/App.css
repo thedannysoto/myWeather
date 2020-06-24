@@ -114,15 +114,6 @@
   text-align: left;
 }
 
-.search-option.div {
-  margin-top: 5px;
-}
-.search-option {
-  width: auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
 #main-container {
   background-color: rgba(38, 38, 38, 0.516);
   width: 500px;

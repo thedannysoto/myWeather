@@ -26,7 +26,7 @@ class ZipContainer extends Component {
 
         return(
             <div id="top-container">
-                <ZipInput updateState={this.updateState} sendSearch={this.props.sendSearch} fetchCurrentWeather={ this.props.fetchCurrentWeather } addUrl={this.props.addUrl} zip={this.props.zip}/>
+                <ZipInput updateState={this.updateState} sendSearch={this.props.sendSearch} fetchCurrentWeather={ this.props.fetchCurrentWeather } addUrl={this.props.addUrl} zip={this.props.zip} addLocation={this.props.addLocation} />
             <div id="recent-searches" style={{display: "none"}}>
                 <h3>Recent Searches</h3>
                 <RecentSearches zip={this.props.zip} addUrl={this.props.addUrl} fetchCurrentWeather={this.props.fetchCurrentWeather} handleOnClickList={this.handleOnClickList} searches={this.props.searches} />
@@ -40,6 +40,7 @@ class ZipContainer extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         addUrl: url => dispatch({ type: "ADD_URL", url }),
+        addLocation: location => dispatch({ type: "ADD_LOCATION", location }),
         fetchCurrentWeather: () => dispatch(fetchCurrentWeather()),
         sendSearch: () => dispatch(sendSearch())
     }
