@@ -17,7 +17,7 @@ class WeatherContainer extends Component {
         return(
              // div display => "block" in weatherReducer  'ADD_CURRENT_WEATHER
             <div id="main-container" style={{display: "none"}}>
-                <CurrentWeather location={this.props.location} sendSearch={this.props.sendSearch} dailyWeather={this.props.dailyWeather} weather={this.props.weather} fetchDailyWeather={this.props.fetchDailyWeather} addUrlTwo={this.props.addUrlTwo} handleOnClick={this.handleOnClick}/>
+                <CurrentWeather location={this.props.location} sendSearch={this.props.sendSearch} weather={this.props.weather} handleOnClick={this.handleOnClick}/>
             </div>
         )
     }
@@ -26,7 +26,6 @@ class WeatherContainer extends Component {
 const mapStateToProps = state => {
     return {
         weather: state.weather,
-        dailyWeather: state.dailyWeather,
         location: state.location
     }
 }
@@ -34,7 +33,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         sendSearch: () => dispatch(sendSearch()),
-        addUrlTwo: coordinates => dispatch({ type: 'ADD_URL_TWO', coordinates }),
     }
 }
 
