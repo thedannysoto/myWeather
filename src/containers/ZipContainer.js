@@ -3,19 +3,18 @@ import ZipInput from '../components/ZipInput';
 import { fetchCurrentWeather, sendSearch } from '../actions/weatherActions'
 import RecentSearches from '../components/RecentSearches';
 import WeatherContainer from './WeatherContainer';
-import {
-    geocodeByAddress,
-    getLatLng,
-  } from 'react-places-autocomplete';
+import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 import { connect } from 'react-redux'
 
 class ZipContainer extends Component {
 
+    // This is run when a location is selected
     handleSelect = address => {
         this.sendLocationData(address, this.props.fetchCurrentWeather);
       };
 
+    // This is run when a recent search is clicked
     handleOnClick = event => {
         this.sendLocationData(event.target.innerText, this.props.fetchCurrentWeather)
     }
@@ -38,7 +37,7 @@ class ZipContainer extends Component {
 
         return(
             <div id="top-container">
-                <ZipInput handleSelect={this.handleSelect} sendSearch={this.props.sendSearch} fetchCurrentWeather={ this.props.fetchCurrentWeather } addUrl={this.props.addUrl} zip={this.props.zip} addLocation={this.props.addLocation} />
+                <ZipInput handleSelect={this.handleSelect} sendSearch={this.props.sendSearch} fetchCurrentWeather={ this.props.fetchCurrentWeather } addUrl={this.props.addUrl} addLocation={this.props.addLocation} />
             <div id="recent-searches" style={{display: "none"}}>
                 <h3>Recent Searches</h3>
                 <RecentSearches  handleOnClick={this.handleOnClick} searches={this.props.searches} />
@@ -60,7 +59,6 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
     return {
-        zip: state.zip,
         recent: state.recent,
         searches: state.searches
     }
