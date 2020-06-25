@@ -33,7 +33,7 @@ class CurrentWeather extends Component {
                             <button id="forecast-button" onClick={this.props.handleOnClick}>See 7 Day Forecast</button>
                         </div>
                         <div id="forecast-container">
-                            <DailyWeather key={weather.weather.current.dt} sendSearch={this.props.sendSearch} weather={this.props.weather} addUrlTwo={this.props.addUrlTwo} fetchDailyWeather={this.props.fetchDailyWeather} coord={this.props.weather[0].coord}/>
+                            <DailyWeather key={weather.weather.current.dt} sendSearch={this.props.sendSearch} weather={this.props.weather} />
                         </div>
                     </div>
                     )

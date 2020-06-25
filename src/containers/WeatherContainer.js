@@ -15,7 +15,7 @@ class WeatherContainer extends Component {
     render() {
 
         return(
-            
+             // div display => "block" in weatherReducer  'ADD_CURRENT_WEATHER
             <div id="main-container" style={{display: "none"}}>
                 <CurrentWeather location={this.props.location} sendSearch={this.props.sendSearch} dailyWeather={this.props.dailyWeather} weather={this.props.weather} fetchDailyWeather={this.props.fetchDailyWeather} addUrlTwo={this.props.addUrlTwo} handleOnClick={this.handleOnClick}/>
             </div>
