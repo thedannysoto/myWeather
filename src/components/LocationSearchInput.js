@@ -10,23 +10,6 @@ class LocationSearchInput extends Component {
   handleChange = address => {
     this.setState({ address });
   };
- 
-  // handleSelect = address => {
-  //   this.sendLocationData(address, this.props.fetchCurrentWeather);
-  //   this.setState({ address: '' })
-  // };
-
-  // sendLocationData(address, fetchWeather) {
-  //   geocodeByAddress(address)
-  //   .then(results => {
-  //       console.log(results[0].formatted_address);
-  //       return getLatLng(results[0])
-  //   })
-  //   .then(latLng => {
-  //       this.props.addLocation(address);
-  //       this.props.addUrl(latLng)})
-  //   .then(results => fetchWeather());
-  // }
 
   render() {
       const searchOptions = {
@@ -53,7 +36,7 @@ class LocationSearchInput extends Component {
                 const className = suggestion.active
                   ? 'suggestion-item--active'
                   : 'suggestion-item';
-                // inline style for demonstration purpose
+                // inline style
                 const style = suggestion.active
                   ? { backgroundColor: '#c8c8c8', cursor: 'pointer' }
                   : { backgroundColor: '#ffffff', cursor: 'pointer' };
