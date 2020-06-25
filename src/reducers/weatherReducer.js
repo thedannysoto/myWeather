@@ -1,4 +1,4 @@
-const weatherReducer = (state = { searches: [], url: '', urlTwo: '', location: '', city: '', recent: '', coord:[], dailyWeather: [], weather: [], loading: false }, action) => {
+const weatherReducer = (state = { searches: [], url: '', location: '', recent: '', weather: [] }, action) => {
     switch(action.type) {
       case 'ADD_URL':
         console.log(action);
