@@ -1,4 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+My Weather is a web app built in ReactJS. It allows users to search for current and future weather conditions for a selected location. Google Places API helps to autocomplete location queries. OpenWeather API is used to retrieve the weather conditions for the location selected. Redux is used to manage the state of the app and Redux-Thunk is used to fetch send and receive information from the OpenWeather API. Ruby on Rails provides a back end API to store and retrieve the 5 most recent user searches to populate a Recent Searches list. A user can click on a recent search to get weather for that location in addition to filling the text input field.
+
+## YouTube Demo of My Weather
+
 
 ## Available Scripts
 
